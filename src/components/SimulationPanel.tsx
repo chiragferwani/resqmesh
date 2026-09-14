@@ -88,6 +88,9 @@ export default function SimulationPanel() {
             <button onClick={resolveSelected} className="w-full flex items-center gap-2 px-3 py-2 bg-green-600/20 hover:bg-green-600/30 text-green-300 rounded-lg text-sm font-medium transition-colors">
               <CheckCircle className="w-4 h-4" /> Resolve Selected Incident
             </button>
+            <a href="/simulation" className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-300 rounded-lg text-xs font-bold transition-colors border border-yellow-500/30 text-center">
+              <Zap className="w-3.5 h-3.5 fill-yellow-400" /> Open Full Simulation Center →
+            </a>
           </div>
           <div className="px-4 py-2 bg-gray-800/50 text-[10px] text-gray-500 text-center">
             Demo Mode — Simulated Data

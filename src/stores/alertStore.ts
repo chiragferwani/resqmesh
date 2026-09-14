@@ -10,6 +10,14 @@ interface AlertState {
   markAllAsRead: () => void;
   addAlert: (alert: Omit<Alert, 'id'>) => void;
   removeAlert: (id: string) => void;
+  clearAllAlerts: () => void;
+  broadcastAlert: (alert: {
+    title: string;
+    description: string;
+    priority: Alert['priority'];
+    location?: string;
+    incidentId?: string;
+  }) => Alert;
 }
 
 export const useAlertStore = create<AlertState>((set, get) => ({
@@ -24,11 +32,26 @@ export const useAlertStore = create<AlertState>((set, get) => ({
     return { alerts, unreadCount: 0 };
   }),
   addAlert: (data) => set((state) => {
-    const alerts = [{ ...data, id: `alt-${generateId()}` }, ...state.alerts];
+    const newAlert: Alert = { ...data, id: `alt-${generateId()}` };
+    const alerts = [newAlert, ...state.alerts];
     return { alerts, unreadCount: alerts.filter(a => !a.read).length };
   }),
+  broadcastAlert: (data) => {
+    const newAlert: Alert = {
+      ...data,
+      id: `alt-${generateId()}`,
+      createdAt: new Date().toISOString(),
+      read: false,
+    };
+    set((state) => ({
+      alerts: [newAlert, ...state.alerts],
+      unreadCount: state.unreadCount + 1,
+    }));
+    return newAlert;
+  },
   removeAlert: (id) => set((state) => {
     const alerts = state.alerts.filter(a => a.id !== id);
     return { alerts, unreadCount: alerts.filter(a => !a.read).length };
   }),
+  clearAllAlerts: () => set({ alerts: [], unreadCount: 0 }),
 }));

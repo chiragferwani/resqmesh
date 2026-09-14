@@ -20,6 +20,7 @@ const AnalyticsPage = lazy(() => import('@/pages/AnalyticsPage'));
 const AlertsPage = lazy(() => import('@/pages/AlertsPage'));
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'));
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'));
+const SimulationPage = lazy(() => import('@/pages/SimulationPage'));
 
 function Loading() {
   return (
@@ -74,6 +75,7 @@ export default function App() {
               <Route path="/alerts" element={<AlertsPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/simulation" element={<SimulationPage />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

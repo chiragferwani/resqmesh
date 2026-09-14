@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { LayoutDashboard, AlertTriangle, Map, Users, MessageSquare, Package, Heart, FileText, BarChart3, Bell, Settings, User, Radio, TriangleAlert, Menu } from 'lucide-react';
+import { LayoutDashboard, AlertTriangle, Map, Users, MessageSquare, Package, Heart, FileText, BarChart3, Bell, Settings, User, Radio, TriangleAlert, Menu, Zap } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 import { useUiStore } from '@/stores/uiStore';
 import { useSosStore } from '@/stores/sosStore';
@@ -18,6 +18,7 @@ const adminNav = [
   { to: '/reports', label: 'Reports & Logs', icon: FileText },
   { to: '/analytics', label: 'Analytics', icon: BarChart3 },
   { to: '/alerts', label: 'Alerts', icon: Bell },
+  { to: '/simulation', label: 'Simulation & AI', icon: Zap },
   { to: '/settings', label: 'Settings', icon: Settings },
   { to: '/profile', label: 'Profile', icon: User },
 ];
@@ -30,6 +31,8 @@ const responderNav = [
   { to: '/resources', label: 'Resources', icon: Package },
   { to: '/medical', label: 'Medical Support', icon: Heart },
   { to: '/reports', label: 'Reports & Logs', icon: FileText },
+  { to: '/alerts', label: 'Alerts', icon: Bell },
+  { to: '/simulation', label: 'Simulation & AI', icon: Zap },
   { to: '/settings', label: 'Settings', icon: Settings },
   { to: '/profile', label: 'Profile', icon: User },
 ];
